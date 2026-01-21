@@ -4,7 +4,11 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "WordPop",
-  description: "Kids English vocab trainer"
+  description: "Kids English vocab trainer",
+  robots: {
+    index: false,
+    follow: false,
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
