@@ -178,6 +178,7 @@ export default function StudyPage() {
   const accuracy = total > 0 ? Math.round((correct / total) * 100) : 0;
 
   function restartSession() {
+    if (!sessionSnap) return;
     const items = sessionSnap.items ?? [];
     makeSession({
       items,
