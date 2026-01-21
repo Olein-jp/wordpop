@@ -1,0 +1,47 @@
+{
+  "unitId": "yuki-z-kai-202601",
+  "title": "結生 Z会 2026年1月",
+  "items": [
+    { "id": "yuki-z-kai-202601-0001", "ja": "起きる", "en": "get up" },
+    { "id": "yuki-z-kai-202601-0002", "ja": "朝食を食べる", "en": "eat breakfast" },
+    { "id": "yuki-z-kai-202601-0003", "ja": "家を出る", "en": "leave home" },
+
+    { "id": "yuki-z-kai-202601-0004", "ja": "わたしは６時に起きます。", "en": "I get up at six." },
+    { "id": "yuki-z-kai-202601-0005", "ja": "わたしは７時に朝食を食べます。", "en": "I eat breakfast at seven." },
+    { "id": "yuki-z-kai-202601-0006", "ja": "ぼくは８時に家を出ます。", "en": "I leave home at eight." },
+
+    { "id": "yuki-z-kai-202601-0007", "ja": "１", "en": "one" },
+    { "id": "yuki-z-kai-202601-0008", "ja": "２", "en": "two" },
+    { "id": "yuki-z-kai-202601-0009", "ja": "３", "en": "three" },
+    { "id": "yuki-z-kai-202601-0010", "ja": "４", "en": "four" },
+    { "id": "yuki-z-kai-202601-0011", "ja": "５", "en": "five" },
+    { "id": "yuki-z-kai-202601-0012", "ja": "６", "en": "six" },
+    { "id": "yuki-z-kai-202601-0013", "ja": "７", "en": "seven" },
+    { "id": "yuki-z-kai-202601-0014", "ja": "８", "en": "eight" },
+    { "id": "yuki-z-kai-202601-0015", "ja": "９", "en": "nine" },
+    { "id": "yuki-z-kai-202601-0016", "ja": "１０", "en": "ten" },
+    { "id": "yuki-z-kai-202601-0017", "ja": "１１", "en": "eleven" },
+    { "id": "yuki-z-kai-202601-0018", "ja": "１２", "en": "twelve" },
+
+    { "id": "yuki-z-kai-202601-0019", "ja": "昼食", "en": "lunch" },
+    { "id": "yuki-z-kai-202601-0020", "ja": "夕食", "en": "dinner" },
+    { "id": "yuki-z-kai-202601-0021", "ja": "テレビを見る", "en": "watch TV" },
+
+    { "id": "yuki-z-kai-202601-0022", "ja": "あなたは７時に夕食を食べますか？", "en": "Do you eat dinner at seven?" },
+    { "id": "yuki-z-kai-202601-0023", "ja": "あなたは８時にテレビを見ますか？", "en": "Do you watch TV at eight?" },
+    { "id": "yuki-z-kai-202601-0024", "ja": "あなたは１１時に昼食を食べますか？", "en": "Do you eat lunch at eleven?" },
+
+    { "id": "yuki-z-kai-202601-0025", "ja": "はい、〜します。", "en": "Yes, I do." },
+    { "id": "yuki-z-kai-202601-0026", "ja": "いいえ、〜しません。", "en": "No, I don’t." },
+
+    { "id": "yuki-z-kai-202601-0027", "ja": "家に着く", "en": "get home" },
+    { "id": "yuki-z-kai-202601-0028", "ja": "おふろに入る", "en": "take a bath" },
+    { "id": "yuki-z-kai-202601-0029", "ja": "寝る", "en": "go to bed" },
+
+    { "id": "yuki-z-kai-202601-0030", "ja": "あなたは何時に家に着きますか？", "en": "What time do you get home?" },
+    { "id": "yuki-z-kai-202601-0031", "ja": "あなたは何時にお風呂に入りますか？", "en": "What time do you take a bath?" },
+    { "id": "yuki-z-kai-202601-0032", "ja": "あなたは何時に寝ますか？", "en": "What time do you go to bed?" },
+
+    { "id": "yuki-z-kai-202601-0033", "ja": "わたしは５時３０分に家に着きます。", "en": "I get home at five thirty." }
+  ]
+}

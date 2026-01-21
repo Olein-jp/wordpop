@@ -1,0 +1,57 @@
+{
+  "unitId": "haruki-z-kai-202601",
+  "title": "遥生 Z会 2026年1月",
+  "items": [
+    { "id": "haruki-z-kai-202601-0001", "ja": "宇宙飛行士", "en": "astronaut" },
+    { "id": "haruki-z-kai-202601-0002", "ja": "パイロット", "en": "pilot" },
+    { "id": "haruki-z-kai-202601-0003", "ja": "ピアニスト", "en": "pianist" },
+
+    { "id": "haruki-z-kai-202601-0004", "ja": "ぼくは宇宙飛行士になりたいです。", "en": "I want to be an astronaut." },
+    { "id": "haruki-z-kai-202601-0005", "ja": "わたしはピアニストになりたいです。", "en": "I want to be a pianist." },
+    { "id": "haruki-z-kai-202601-0006", "ja": "ぼくはパイロットになりたいです。", "en": "I want to be a pilot." },
+    { "id": "haruki-z-kai-202601-0007", "ja": "かっこいいね。", "en": "That’s cool." },
+
+    { "id": "haruki-z-kai-202601-0008", "ja": "獣医", "en": "vet" },
+    { "id": "haruki-z-kai-202601-0009", "ja": "花屋さん", "en": "florist" },
+    { "id": "haruki-z-kai-202601-0010", "ja": "サッカー選手", "en": "soccer player" },
+
+    { "id": "haruki-z-kai-202601-0011", "ja": "あなたは何になりたいですか？", "en": "What do you want to be?" },
+    { "id": "haruki-z-kai-202601-0012", "ja": "わたしは獣医になりたいです。", "en": "I want to be a vet." },
+    { "id": "haruki-z-kai-202601-0013", "ja": "わたしは花屋さんになりたいです。", "en": "I want to be a florist." },
+    { "id": "haruki-z-kai-202601-0014", "ja": "ぼくはサッカー選手になりたいです。", "en": "I want to be a soccer player." },
+
+    { "id": "haruki-z-kai-202601-0015", "ja": "動物", "en": "animal" },
+    { "id": "haruki-z-kai-202601-0016", "ja": "花", "en": "flower" },
+    { "id": "haruki-z-kai-202601-0017", "ja": "サッカーをすること", "en": "playing soccer" },
+
+    { "id": "haruki-z-kai-202601-0018", "ja": "あなたはなぜ獣医になりたいのですか？", "en": "Why do you want to be a vet?" },
+    { "id": "haruki-z-kai-202601-0019", "ja": "わたしは動物が好きだからです。", "en": "Because I like animals." },
+    { "id": "haruki-z-kai-202601-0020", "ja": "あなたはなぜ花屋さんになりたいのですか？", "en": "Why do you want to be a florist?" },
+    { "id": "haruki-z-kai-202601-0021", "ja": "わたしは花が好きだからです。", "en": "Because I like flowers." },
+    { "id": "haruki-z-kai-202601-0022", "ja": "あなたはなぜサッカー選手になりたいのですか？", "en": "Why do you want to be a soccer player?" },
+    { "id": "haruki-z-kai-202601-0023", "ja": "ぼくはサッカーをすることが好きだからです。", "en": "Becatse I like playing soccer." },
+
+    { "id": "haruki-z-kai-202601-0024", "ja": "医者", "en": "doctor" },
+    { "id": "haruki-z-kai-202601-0025", "ja": "エンジニア、技術者", "en": "engineer" },
+    { "id": "haruki-z-kai-202601-0026", "ja": "先生", "en": "teacher" },
+
+    { "id": "haruki-z-kai-202601-0027", "ja": "ぼくのお父さんは医者です。", "en": "My father is a doctor." },
+    { "id": "haruki-z-kai-202601-0028", "ja": "わたしのお母さんは先生です。", "en": "My mother is a teacher." },
+    { "id": "haruki-z-kai-202601-0029", "ja": "ぼくも医者になりたいです。", "en": "I want to be a doctor, too." },
+
+    { "id": "haruki-z-kai-202601-0030", "ja": "一生懸命勉強する", "en": "study hard" },
+    { "id": "haruki-z-kai-202601-0031", "ja": "犬の散歩をする", "en": "walk my dog" },
+    { "id": "haruki-z-kai-202601-0032", "ja": "テニスを練習する", "en": "practice tennis" },
+
+    { "id": "haruki-z-kai-202601-0033", "ja": "ぼくは毎日、一生懸命勉強します。", "en": "I study hard every day." },
+    { "id": "haruki-z-kai-202601-0034", "ja": "わたしは毎日、犬の散歩をします。", "en": "I walk my dog every day." },
+    { "id": "haruki-z-kai-202601-0035", "ja": "ぼくは毎日、テニスを練習します。", "en": "I practice tennis every day." },
+
+    { "id": "haruki-z-kai-202601-0036", "ja": "英語を話す", "en": "speak English" },
+    { "id": "haruki-z-kai-202601-0037", "ja": "ピアノをひく", "en": "play the piano" },
+    { "id": "haruki-z-kai-202601-0038", "ja": "サッカーをする", "en": "play soccer" },
+
+    { "id": "haruki-z-kai-202601-0039", "ja": "わたしは英語を上手に話すことができます。", "en": "I can speak English well." },
+    { "id": "haruki-z-kai-202601-0040", "ja": "ぼくはサッカーを上手にプレイできます。", "en": "I can play soccer well." }
+  ]
+}
