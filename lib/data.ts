@@ -25,12 +25,18 @@ async function fetchJson<T>(url: string): Promise<T> {
   return (await res.json()) as T;
 }
 
+function withBasePath(url: string): string {
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+  if (!url.startsWith("/")) return url;
+  return `${basePath}${url}`;
+}
+
 /**
  * public/data/index.json を読む
  * - 配列 or { units: [...] } の両対応
  */
 export async function loadUnitIndex(): Promise<UnitMeta[]> {
-  const raw = await fetchJson<IndexShape>("/data/index.json");
+  const raw = await fetchJson<IndexShape>(withBasePath("/data/index.json"));
   const units: UnitMeta[] = Array.isArray(raw) ? raw : Array.isArray((raw as any)?.units) ? (raw as any).units : [];
   return units.filter((u) => typeof u?.id === "string" && u.id.trim().length > 0);
 }
@@ -47,7 +53,7 @@ export async function loadUnit(unitId: string): Promise<UnitFile> {
   const meta = idx.find((u) => u.id === unitId);
   const url = meta?.path?.trim() ? meta.path.trim() : `/data/units/${unitId}.json`;
 
-  return await fetchJson<UnitFile>(url);
+  return await fetchJson<UnitFile>(withBasePath(url));
 }
 
 export async function loadUnitsByIds(unitIds: string[]): Promise<UnitFile[]> {
@@ -60,5 +66,5 @@ export async function loadUnitsByIds(unitIds: string[]): Promise<UnitFile[]> {
     return meta?.path?.trim() ? meta.path.trim() : `/data/units/${id}.json`;
   });
 
-  return await Promise.all(urls.map((u) => fetchJson<UnitFile>(u)));
+  return await Promise.all(urls.map((u) => fetchJson<UnitFile>(withBasePath(u))));
 }
