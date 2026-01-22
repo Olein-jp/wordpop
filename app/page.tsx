@@ -70,7 +70,7 @@ export default function HomePage() {
       <Card>
         <div className="grid gap-3">
           <div className="text-sm font-semibold">ユーザー追加</div>
-          <div className="flex gap-2">
+          <div className="flex flex-col gap-2 sm:flex-row sm:items-center">
             <input
               value={name}
               onChange={(e) => setName(e.target.value)}
@@ -79,7 +79,7 @@ export default function HomePage() {
             />
             <button
               onClick={onAdd}
-              className="rounded-xl bg-white px-4 py-2 text-sm font-semibold text-black hover:bg-white/90"
+              className="w-full rounded-xl bg-white px-4 py-2 text-sm font-semibold text-black hover:bg-white/90 sm:w-auto"
             >
               追加
             </button>
@@ -105,18 +105,18 @@ export default function HomePage() {
                   <div
                     key={u}
                     className={[
-                      "flex items-center justify-between rounded-xl border px-3 py-2",
+                      "flex flex-col gap-2 rounded-xl border px-3 py-2 sm:flex-row sm:items-center sm:justify-between",
                       "border-white/10 bg-white/5",
                       isActive ? "ring-2 ring-white/20" : "",
                     ].join(" ")}
                   >
-                    <button onClick={() => selectUser(u)} className="text-left text-sm font-semibold">
+                    <button onClick={() => selectUser(u)} className="text-left text-sm font-semibold break-words">
                       {u}
                       {isActive ? <span className="ml-2 text-xs text-white/60">（選択中）</span> : null}
                     </button>
                     <button
                       onClick={() => onDelete(u)}
-                      className="rounded-lg border border-white/10 bg-white/5 px-2 py-1 text-xs hover:bg-white/10"
+                      className="self-start rounded-lg border border-white/10 bg-white/5 px-2 py-1 text-xs hover:bg-white/10 sm:self-auto"
                     >
                       削除
                     </button>
@@ -131,7 +131,7 @@ export default function HomePage() {
               onClick={() => router.push("/settings")}
               disabled={!canGo}
               className={[
-                "rounded-xl px-4 py-2 text-sm font-semibold",
+                "w-full rounded-xl px-4 py-2 text-sm font-semibold sm:w-auto",
                 canGo ? "bg-white text-black hover:bg-white/90" : "bg-white/20 text-white/50 cursor-not-allowed",
               ].join(" ")}
             >
@@ -142,7 +142,7 @@ export default function HomePage() {
               onClick={() => router.push("/study")}
               disabled={!canGo}
               className={[
-                "rounded-xl border px-4 py-2 text-sm",
+                "w-full rounded-xl border px-4 py-2 text-sm sm:w-auto",
                 canGo ? "border-white/10 bg-white/5 hover:bg-white/10" : "border-white/10 bg-white/5 text-white/40 cursor-not-allowed",
               ].join(" ")}
             >

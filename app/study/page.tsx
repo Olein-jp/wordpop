@@ -126,16 +126,16 @@ export default function StudyPage() {
           {error}
         </div>
 
-        <div className="flex gap-2">
+        <div className="flex flex-wrap gap-2">
           <button
             onClick={() => router.push("/settings")}
-            className="rounded-xl border border-white/10 bg-white/5 px-4 py-2 text-sm hover:bg-white/10"
+            className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-2 text-sm hover:bg-white/10 sm:w-auto"
           >
             設定へ
           </button>
           <button
             onClick={() => router.push("/")}
-            className="rounded-xl border border-white/10 bg-white/5 px-4 py-2 text-sm hover:bg-white/10"
+            className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-2 text-sm hover:bg-white/10 sm:w-auto"
           >
             ホームへ
           </button>
@@ -155,16 +155,16 @@ export default function StudyPage() {
         <div className="rounded-2xl border border-white/10 bg-white/5 p-4 text-sm">
           正解率: 0%
         </div>
-        <div className="flex gap-2">
+        <div className="flex flex-wrap gap-2">
           <button
             onClick={() => router.push("/settings")}
-            className="rounded-xl border border-white/10 bg-white/5 px-4 py-2 text-sm hover:bg-white/10"
+            className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-2 text-sm hover:bg-white/10 sm:w-auto"
           >
             もう一回（設定へ）
           </button>
           <button
             onClick={() => router.push("/")}
-            className="rounded-xl border border-white/10 bg-white/5 px-4 py-2 text-sm hover:bg-white/10"
+            className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-2 text-sm hover:bg-white/10 sm:w-auto"
           >
             ホームへ
           </button>
@@ -206,19 +206,19 @@ export default function StudyPage() {
         <div className="flex flex-wrap gap-2">
           <button
             onClick={restartSession}
-            className="rounded-xl bg-white px-4 py-2 text-sm font-semibold text-black hover:bg-white/90"
+            className="w-full rounded-xl bg-white px-4 py-2 text-sm font-semibold text-black hover:bg-white/90 sm:w-auto"
           >
             同じ設定で学習する
           </button>
           <button
             onClick={() => router.push("/settings")}
-            className="rounded-xl border border-white/10 bg-white/5 px-4 py-2 text-sm hover:bg-white/10"
+            className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-2 text-sm hover:bg-white/10 sm:w-auto"
           >
             設定へ
           </button>
           <button
             onClick={() => router.push("/")}
-            className="rounded-xl border border-white/10 bg-white/5 px-4 py-2 text-sm hover:bg-white/10"
+            className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-2 text-sm hover:bg-white/10 sm:w-auto"
           >
             ホームへ
           </button>
@@ -264,7 +264,7 @@ export default function StudyPage() {
   return (
     <div className="grid gap-4">
       <div className="rounded-3xl border border-white/10 bg-gradient-to-b from-white/10 to-white/5 p-6">
-        <div className="flex items-center justify-between gap-3">
+        <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
           <div>
             <h1 className="text-2xl font-semibold tracking-tight">学習</h1>
             <p className="mt-2 text-sm text-white/70">
@@ -275,7 +275,7 @@ export default function StudyPage() {
           {promptIsEnglish ? (
             <button
               onClick={onSpeak}
-              className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm hover:bg-white/10"
+              className="w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm hover:bg-white/10 sm:w-auto"
               title="読み上げ"
             >
               🔊 読み上げ
@@ -287,7 +287,7 @@ export default function StudyPage() {
       <Card>
         <div className="grid gap-3">
           <div className="text-xs text-white/50">{promptIsEnglish ? "英語" : "日本語"} → 選択</div>
-          <div className="text-xl font-semibold leading-relaxed">{q.promptText}</div>
+          <div className="text-xl font-semibold leading-relaxed break-words">{q.promptText}</div>
           <div className="text-xs text-white/50">
             読み上げ速度: {Number(settings.ttsRate ?? 0.9).toFixed(2)}
           </div>
@@ -306,13 +306,13 @@ export default function StudyPage() {
                 <div className="flex flex-wrap gap-2">
                   <button
                     onClick={() => onSelfCheckResult(true)}
-                    className="rounded-xl bg-white px-4 py-2 text-sm font-semibold text-black hover:bg-white/90"
+                    className="w-full rounded-xl bg-white px-4 py-2 text-sm font-semibold text-black hover:bg-white/90 sm:w-auto"
                   >
                     正解
                   </button>
                   <button
                     onClick={() => onSelfCheckResult(false)}
-                    className="rounded-xl border border-white/10 bg-white/5 px-4 py-2 text-sm hover:bg-white/10"
+                    className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-2 text-sm hover:bg-white/10 sm:w-auto"
                   >
                     不正解
                   </button>
@@ -321,7 +321,7 @@ export default function StudyPage() {
             ) : (
               <button
                 onClick={() => setShowAnswer(true)}
-                className="rounded-xl border border-white/10 bg-white/5 px-4 py-2 text-sm hover:bg-white/10"
+                className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-2 text-sm hover:bg-white/10 sm:w-auto"
               >
                 答えを見る
               </button>
@@ -334,7 +334,7 @@ export default function StudyPage() {
             <button
               key={c}
               onClick={() => onPick(c)}
-              className="rounded-2xl border border-white/10 bg-white/5 p-4 text-left text-base hover:bg-white/10"
+              className="rounded-2xl border border-white/10 bg-white/5 p-4 text-left text-base break-words hover:bg-white/10"
             >
               {c}
             </button>
@@ -342,10 +342,10 @@ export default function StudyPage() {
         </div>
       )}
 
-      <div className="flex gap-2">
+      <div className="flex flex-wrap gap-2">
         <button
           onClick={() => router.push("/settings")}
-          className="rounded-xl border border-white/10 bg-white/5 px-4 py-2 text-sm hover:bg-white/10"
+          className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-2 text-sm hover:bg-white/10 sm:w-auto"
         >
           設定へ
         </button>

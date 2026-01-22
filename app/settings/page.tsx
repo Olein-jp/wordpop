@@ -4,7 +4,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
 import { getAppState, getUserSettings, setUserSettings } from "@/lib/storage";
-import { loadUnitIndex, type UnitMeta } from "@/lib/data";
+import { loadUnitIndex, loadUnitsByIds, type UnitMeta } from "@/lib/data";
 import type { StudyMode, UserSettings } from "@/types/quiz";
 import { warmupTTS } from "@/lib/tts";
 
@@ -29,12 +29,15 @@ export default function SettingsPage() {
   const [unitIndexError, setUnitIndexError] = useState<string | null>(null);
 
   const [selectedUnitIds, setSelectedUnitIds] = useState<string[]>([]);
+  const [totalSelectedItems, setTotalSelectedItems] = useState<number | null>(null);
+  const [totalItemsLoading, setTotalItemsLoading] = useState(false);
 
   const [mode, setMode] = useState<StudyMode>("en-ja");
   const [questionCount, setQuestionCount] = useState(10);
   const [answerMode, setAnswerMode] = useState<"choices" | "self-check">("choices");
   const [autoSpeak, setAutoSpeak] = useState(true);
   const [ttsRate, setTtsRate] = useState(0.9);
+  const [lastRangeCount, setLastRangeCount] = useState(10);
 
   useEffect(() => {
     setMounted(true);
@@ -75,6 +78,45 @@ export default function SettingsPage() {
   }, [router]);
 
   const selectedSet = useMemo(() => new Set(selectedUnitIds), [selectedUnitIds]);
+
+  useEffect(() => {
+    let alive = true;
+    if (selectedUnitIds.length === 0) {
+      setTotalSelectedItems(0);
+      setTotalItemsLoading(false);
+      return;
+    }
+    setTotalItemsLoading(true);
+    loadUnitsByIds(selectedUnitIds)
+      .then((units) => {
+        if (!alive) return;
+        const total = units.reduce((sum, u) => {
+          const items = (u as any)?.items;
+          return sum + (Array.isArray(items) ? items.length : 0);
+        }, 0);
+        setTotalSelectedItems(total);
+      })
+      .catch(() => {
+        if (!alive) return;
+        setTotalSelectedItems(0);
+      })
+      .finally(() => {
+        if (!alive) return;
+        setTotalItemsLoading(false);
+      });
+    return () => {
+      alive = false;
+    };
+  }, [selectedUnitIds]);
+
+  const totalCount = totalSelectedItems ?? 0;
+  const rangeMax = Math.max(1, 50, totalCount);
+  const isAllSelected = totalCount > 0 && questionCount === totalCount;
+  const totalItemsText = totalItemsLoading ? "計算中…" : totalCount > 0 ? `${totalCount}` : "-";
+
+  useEffect(() => {
+    if (!isAllSelected) setLastRangeCount(questionCount);
+  }, [isAllSelected, questionCount]);
 
   function toggleUnit(id: string) {
     setSelectedUnitIds((prev) => {
@@ -126,7 +168,7 @@ export default function SettingsPage() {
 
       <Card>
         <div className="grid gap-3">
-          <div className="flex items-center justify-between gap-2">
+          <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
             <div>
               <div className="text-sm font-semibold">単元を選ぶ（複数選択OK）</div>
               <div className="mt-1 text-xs text-white/60">
@@ -180,10 +222,15 @@ export default function SettingsPage() {
                     ].join(" ")}
                   >
                     <div className="flex items-start justify-between gap-2">
-                      <div>
-                        <div className="text-sm font-semibold">{title}</div>
+                      <div className="min-w-0">
+                        <div className="text-sm font-semibold break-words">{title}</div>
                         {subtitle ? (
-                          <div className={["mt-1 text-xs", active ? "text-black/70" : "text-white/60"].join(" ")}>
+                          <div
+                            className={[
+                              "mt-1 text-xs break-words",
+                              active ? "text-black/70" : "text-white/60",
+                            ].join(" ")}
+                          >
                             {subtitle}
                           </div>
                         ) : null}
@@ -270,16 +317,43 @@ export default function SettingsPage() {
       <Card>
         <div className="grid gap-3">
           <div className="text-sm font-semibold">1セッションの問題数</div>
-          <div className="flex items-center gap-3">
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
             <input
               type="range"
               min={1}
-              max={50}
+              max={rangeMax}
               value={questionCount}
               onChange={(e) => setQuestionCount(Number(e.target.value || 10))}
               className="w-full"
             />
-            <div className="w-12 text-right text-sm font-semibold">{questionCount}</div>
+          </div>
+          <div className="flex flex-col gap-2 text-xs text-white/60 sm:flex-row sm:items-center sm:justify-between">
+            <div>
+              出題数: <span className="font-semibold text-white">{questionCount}</span> ・ 全問:{" "}
+              <span className="font-semibold text-white">{totalItemsText}</span>
+            </div>
+            <button
+              onClick={() => {
+                if (totalCount === 0) return;
+                if (isAllSelected) {
+                  setQuestionCount(Math.max(1, lastRangeCount));
+                  return;
+                }
+                setLastRangeCount(questionCount);
+                setQuestionCount(totalCount);
+              }}
+              disabled={totalItemsLoading || totalCount === 0}
+              className={[
+                "w-full rounded-xl border px-3 py-2 text-xs sm:w-auto",
+                totalItemsLoading || totalCount === 0
+                  ? "cursor-not-allowed border-white/10 bg-white/5 opacity-50"
+                  : isAllSelected
+                    ? "border-white bg-white text-black"
+                    : "border-white/10 bg-white/5 hover:bg-white/10",
+              ].join(" ")}
+            >
+              全問挑戦
+            </button>
           </div>
         </div>
       </Card>
@@ -318,7 +392,7 @@ export default function SettingsPage() {
       <div className="flex flex-wrap gap-2">
         <button
           onClick={() => router.push("/")}
-          className="rounded-xl border border-white/10 bg-white/5 px-4 py-2 text-sm hover:bg-white/10"
+          className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-2 text-sm hover:bg-white/10 sm:w-auto"
         >
           戻る
         </button>
@@ -327,7 +401,7 @@ export default function SettingsPage() {
           onClick={onSave}
           disabled={!canSave}
           className={[
-            "rounded-xl px-4 py-2 text-sm font-semibold",
+            "w-full rounded-xl px-4 py-2 text-sm font-semibold sm:w-auto",
             canSave ? "bg-white text-black hover:bg-white/90" : "bg-white/20 text-white/50 cursor-not-allowed",
           ].join(" ")}
         >
