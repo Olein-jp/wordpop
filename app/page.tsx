@@ -104,18 +104,30 @@ export default function HomePage() {
                 return (
                   <div
                     key={u}
+                    role="button"
+                    tabIndex={0}
+                    onClick={() => selectUser(u)}
+                    onKeyDown={(e) => {
+                      if (e.key === "Enter" || e.key === " ") {
+                        e.preventDefault();
+                        selectUser(u);
+                      }
+                    }}
                     className={[
-                      "flex flex-col gap-2 rounded-xl border px-3 py-2 sm:flex-row sm:items-center sm:justify-between",
+                      "flex cursor-pointer flex-col gap-2 rounded-xl border px-3 py-2 sm:flex-row sm:items-center sm:justify-between",
                       "border-white/10 bg-white/5",
                       isActive ? "ring-2 ring-white/20" : "",
                     ].join(" ")}
                   >
-                    <button onClick={() => selectUser(u)} className="text-left text-sm font-semibold break-words">
+                    <div className="text-left text-sm font-semibold break-words">
                       {u}
                       {isActive ? <span className="ml-2 text-xs text-white/60">（選択中）</span> : null}
-                    </button>
+                    </div>
                     <button
-                      onClick={() => onDelete(u)}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        onDelete(u);
+                      }}
                       className="self-start rounded-lg border border-white/10 bg-white/5 px-2 py-1 text-xs hover:bg-white/10 sm:self-auto"
                     >
                       削除

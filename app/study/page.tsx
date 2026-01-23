@@ -32,7 +32,6 @@ export default function StudyPage() {
   useEffect(() => {
     setMounted(true);
     warmupTTS();
-
     const st = getAppState();
     const u = st.currentUser ?? null;
 

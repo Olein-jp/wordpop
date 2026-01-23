@@ -3,7 +3,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
-import { getAppState, getUserSettings, setUserSettings } from "@/lib/storage";
+import { getAppState, getUserSettings, listUsers, setCurrentUser, setUserSettings } from "@/lib/storage";
 import { loadUnitIndex, loadUnitsByIds, type UnitMeta } from "@/lib/data";
 import type { StudyMode, UserSettings } from "@/types/quiz";
 import { warmupTTS } from "@/lib/tts";
@@ -23,7 +23,8 @@ export default function SettingsPage() {
   const router = useRouter();
 
   const [mounted, setMounted] = useState(false);
-  const [currentUser, setCurrentUser] = useState<string | null>(null);
+  const [currentUser, setCurrentUserState] = useState<string | null>(null);
+  const [users, setUsers] = useState<string[]>([]);
 
   const [unitIndex, setUnitIndex] = useState<UnitMeta[]>([]);
   const [unitIndexError, setUnitIndexError] = useState<string | null>(null);
@@ -39,6 +40,25 @@ export default function SettingsPage() {
   const [ttsRate, setTtsRate] = useState(0.9);
   const [lastRangeCount, setLastRangeCount] = useState(10);
 
+  function applySettingsForUser(user: string) {
+    const saved = getUserSettings(user);
+    if (saved) {
+      setSelectedUnitIds(Array.isArray(saved.unitIds) ? saved.unitIds : []);
+      setMode(saved.mode ?? "en-ja");
+      setQuestionCount(saved.questionCount ?? 10);
+      setAnswerMode(saved.answerMode ?? "choices");
+      setAutoSpeak(saved.autoSpeak ?? true);
+      setTtsRate(typeof saved.ttsRate === "number" ? saved.ttsRate : 0.9);
+      return;
+    }
+    setSelectedUnitIds([]);
+    setMode("en-ja");
+    setQuestionCount(10);
+    setAnswerMode("choices");
+    setAutoSpeak(true);
+    setTtsRate(0.9);
+  }
+
   useEffect(() => {
     setMounted(true);
 
@@ -48,22 +68,16 @@ export default function SettingsPage() {
     const st = getAppState();
     const u = st.currentUser ?? null;
 
+    const list = listUsers();
+    setUsers(Array.isArray(list) ? list : []);
+
     if (!u) {
       router.replace("/");
       return;
     }
 
-    setCurrentUser(u);
-
-    const saved = getUserSettings(u);
-    if (saved) {
-      setSelectedUnitIds(Array.isArray(saved.unitIds) ? saved.unitIds : []);
-      setMode(saved.mode ?? "en-ja");
-      setQuestionCount(saved.questionCount ?? 10);
-      setAnswerMode(saved.answerMode ?? "choices");
-      setAutoSpeak(saved.autoSpeak ?? true);
-      setTtsRate(typeof saved.ttsRate === "number" ? saved.ttsRate : 0.9);
-    }
+    setCurrentUserState(u);
+    applySettingsForUser(u);
 
     (async () => {
       try {
@@ -76,6 +90,13 @@ export default function SettingsPage() {
       }
     })();
   }, [router]);
+
+  function onSwitchUser(u: string) {
+    if (!u || u === currentUser) return;
+    setCurrentUser(u);
+    setCurrentUserState(u);
+    applySettingsForUser(u);
+  }
 
   const selectedSet = useMemo(() => new Set(selectedUnitIds), [selectedUnitIds]);
 
@@ -165,6 +186,34 @@ export default function SettingsPage() {
           ユーザー: <span className="font-semibold text-white">{currentUser}</span>
         </p>
       </div>
+
+      <Card>
+        <div className="grid gap-3">
+          <div className="text-sm font-semibold">ユーザー切り替え</div>
+          {users.length === 0 ? (
+            <div className="text-sm text-white/60">ユーザーが見つかりません。</div>
+          ) : (
+            <div className="flex flex-wrap gap-2">
+              {users.map((u) => {
+                const active = u === currentUser;
+                return (
+                  <button
+                    key={u}
+                    onClick={() => onSwitchUser(u)}
+                    className={[
+                      "rounded-xl border px-3 py-2 text-xs",
+                      active ? "border-white/30 bg-white text-black" : "border-white/10 bg-white/5 hover:bg-white/10",
+                    ].join(" ")}
+                  >
+                    {u}
+                  </button>
+                );
+              })}
+            </div>
+          )}
+          <div className="text-xs text-white/50">選択ユーザーの設定が自動で反映されます。</div>
+        </div>
+      </Card>
 
       <Card>
         <div className="grid gap-3">
