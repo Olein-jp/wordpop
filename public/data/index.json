@@ -1,6 +1,8 @@
 {
   "units": [
     { "id": "yuki-z-kai-202601", "title": "結生 Z会 2026/01" },
-    { "id": "haruki-z-kai-202601", "title": "遥生 Z会 2026年1月" }
+    { "id": "haruki-z-kai-202601", "title": "遥生 Z会 2026年1月" },
+    { "id": "haruki-z-kai-202511", "title": "遥生 Z会 2025年11月" },
+    { "id": "haruki-z-kai-202512", "title": "遥生 Z会 2025年12月" }
   ]
 }
