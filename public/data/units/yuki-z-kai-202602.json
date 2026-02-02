@@ -1,0 +1,29 @@
+{
+  "unitId": "yuki-z-kai-202602",
+  "title": "結生 Z会 2026年2月",
+  "items": [
+    { "id": "yuki-z-kai-202602-0001", "ja": "cafeteria", "en": "食堂 / カフェテリア" },
+    { "id": "yuki-z-kai-202602-0002", "ja": "floor", "en": "階 / ゆか" },
+    { "id": "yuki-z-kai-202602-0003", "ja": "lobby", "en": "ロビー" },
+    { "id": "yuki-z-kai-202602-0004", "ja": "Where is the cafeteria?", "en": "食堂はどこにありますか？" },
+    { "id": "yuki-z-kai-202602-0005", "ja": "It's on the third floor.", "en": "３階にあります。" },
+    { "id": "yuki-z-kai-202602-0006", "ja": "the first floor", "en": "１階" },
+    { "id": "yuki-z-kai-202602-0007", "ja": "the second floor", "en": "２階" },
+    { "id": "yuki-z-kai-202602-0008", "ja": "the third floor", "en": "３階" },
+    { "id": "yuki-z-kai-202602-0009", "ja": "the fourth floor", "en": "４階" },
+    { "id": "yuki-z-kai-202602-0010", "ja": "parking lot", "en": "駐車場" },
+    { "id": "yuki-z-kai-202602-0011", "ja": "chapel", "en": "礼拝堂 / チャペル" },
+    { "id": "yuki-z-kai-202602-0012", "ja": "restroom", "en": "お手洗い / トイレ" },
+    { "id": "yuki-z-kai-202602-0013", "ja": "Where are you?", "en": "あなたはどこにいますか？" },
+    { "id": "yuki-z-kai-202602-0014", "ja": "I'm in the parking lot.", "en": "私は駐車場（の中）にいます。" },
+    { "id": "yuki-z-kai-202602-0015", "ja": "I'm in the chapel.", "en": "私は礼拝堂（の中）にいます。" },
+    { "id": "yuki-z-kai-202602-0016", "ja": "I'm in the restroom.", "en": "私はお手洗い（の中）にいます。" },
+    { "id": "yuki-z-kai-202602-0017", "ja": "balcony", "en": "バルコニー" },
+    { "id": "yuki-z-kai-202602-0018", "ja": "escalator", "en": "エスカレーター" },
+    { "id": "yuki-z-kai-202602-0019", "ja": "elevator", "en": "エレベーター" },
+    { "id": "yuki-z-kai-202602-0020", "ja": "Where is Kenta?", "en": "けんたはどこにいますか？" },
+    { "id": "yuki-z-kai-202602-0021", "ja": "He's on the balcony.", "en": "彼はバルコニー（の上）にいます。" },
+    { "id": "yuki-z-kai-202602-0022", "ja": "She's on the escalator.", "en": "彼女はエスカレーター（の上）にいます。" },
+    { "id": "yuki-z-kai-202602-0023", "ja": "He's in the elevator.", "en": "彼はエレベーター（の中）にいます。" }
+  ]
+}
