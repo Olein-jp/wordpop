@@ -1,0 +1,27 @@
+{
+  "unitId": "yuki-z-kai-202603",
+  "title": "結生 Z会 2026年3月",
+  "items": [
+    { "id": "yuki-z-kai-202603-0001", "ja": "shake hands", "en": "あくしゅする" },
+    { "id": "yuki-z-kai-202603-0002", "ja": "sing a song", "en": "歌を歌う" },
+    { "id": "yuki-z-kai-202603-0003", "ja": "take a picture", "en": "写真をとる" },
+    { "id": "yuki-z-kai-202603-0004", "ja": "Let's shake hands.", "en": "あくしゅをしましょう" },
+    { "id": "yuki-z-kai-202603-0005", "ja": "Let's sing a song.", "en": "歌を歌いましょう" },
+    { "id": "yuki-z-kai-202603-0006", "ja": "Let's take a picture.", "en": "写真をとりましょう" },
+    { "id": "yuki-z-kai-202603-0007", "ja": "stand up", "en": "立つ" },
+    { "id": "yuki-z-kai-202603-0008", "ja": "cry", "en": "泣く" },
+    { "id": "yuki-z-kai-202603-0009", "ja": "sit down", "en": "すわる" },
+    { "id": "yuki-z-kai-202603-0010", "ja": "Stand up.", "en": "立ちなさい。" },
+    { "id": "yuki-z-kai-202603-0011", "ja": "Sit down.", "en": "すわりなさい。" },
+    { "id": "yuki-z-kai-202603-0012", "ja": "Don't cry.", "en": "泣かないで。" },
+    { "id": "yuki-z-kai-202603-0013", "ja": "Don't sit down.", "en": "すわらないで。" },
+    { "id": "yuki-z-kai-202603-0014", "ja": "Don't take a picture.", "en": "写真をとらないで。" },
+    { "id": "yuki-z-kai-202603-0015", "ja": "Australia", "en": "オーストラリア" },
+    { "id": "yuki-z-kai-202603-0016", "ja": "Italy", "en": "イタリア" },
+    { "id": "yuki-z-kai-202603-0017", "ja": "France", "en": "フランス" },
+    { "id": "yuki-z-kai-202603-0018", "ja": "Please come to the U.S.", "en": "アメリカ合衆国へ来てください。" },
+    { "id": "yuki-z-kai-202603-0019", "ja": "Please come to Australia.", "en": "オーストラリアに来てください。" },
+    { "id": "yuki-z-kai-202603-0020", "ja": "Please remember me.", "en": "わたしを覚えておいてください。" },
+    { "id": "yuki-z-kai-202603-0021", "ja": "Please write a letter.", "en": "手紙を書いてください。" }
+  ]
+}
